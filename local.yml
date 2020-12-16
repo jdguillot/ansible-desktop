@@ -66,7 +66,7 @@
         - code
         - profile-sync-daemon
         - gnome-boxes
-        - python-pip
+        - python3-pip
 
 # Install Pip Packages
   - name: Install Pip Packages
