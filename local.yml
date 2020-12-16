@@ -131,7 +131,7 @@
 # Install Flatpaks
   - name: Install Flatpaks
     flatpak:
-        name: vlc
+        name: org.videolan.VLC
         state: present
 
 # Install Pip Packages
