@@ -6,6 +6,11 @@
   tasks:
 
 # Mount all drives
+# Install CFIS Prereqs
+  - name: Install CFIS Prereqs
+    package: 
+      name:
+        - cifs-utils
   - name: Mount Network Drives
     mount:
       src: //synlgy-ds918.cyberfighter.space/scanner
