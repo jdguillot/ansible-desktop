@@ -169,3 +169,19 @@
     dconf:
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
+  # Gnome Tweaks
+  - name: Apply Gnome Tweaks Button Layout
+    become_user: cyberfighter
+    dconf:
+      key: "org/gnome/desktop/wm/preferences/button-layout"
+      value: "'appmenu:minimize,maximize,close'"
+  - name: Apply Gnome Tweaks Battery Percentage
+    become_user: cyberfighter
+    dconf:
+      key: "org/gnome/desktop/interface/show-battery-percentage"
+      value: "true"
+  - name: Apply Gnome Tweaks Show Weekday
+    become_user: cyberfighter
+    dconf:
+      key: "org/gnome/desktop/interface/clock-show-weekday"
+      value: "true"
