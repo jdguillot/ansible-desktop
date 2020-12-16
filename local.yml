@@ -11,10 +11,31 @@
     package: 
       name:
         - cifs-utils
-  - name: Mount Network Drives
+  - name: Mount Scanner Network Drives
     mount:
       src: //synlgy-ds918.cyberfighter.space/scanner
       path: /mnt/NAS_Scanner
+      opts: credentials=/home/cyberfighter/.nas_Jonny_credentials,iocharset=utf8,uid=1028,gid=100,noperm,vers=2.0
+      state: mounted
+      fstype: cifs
+  - name: Mount Jonny Network Drives
+    mount:
+      src: //synlgy-ds918.cyberfighter.space/home
+      path: /mnt/NAS_Jonny
+      opts: credentials=/home/cyberfighter/.nas_Jonny_credentials,iocharset=utf8,uid=1028,gid=100,noperm,vers=2.0
+      state: mounted
+      fstype: cifs
+  - name: Mount Temp Network Drives
+    mount:
+      src: //synlgy-ds918.cyberfighter.space/Temp
+      path: /mnt/NAS_Temp
+      opts: credentials=/home/cyberfighter/.nas_Jonny_credentials,iocharset=utf8,uid=1028,gid=100,noperm,vers=2.0
+      state: mounted
+      fstype: cifs
+  - name: Mount Media Network Drives
+    mount:
+      src: //synlgy-ds918.cyberfighter.space/Media
+      path: /mnt/NAS_Media
       opts: credentials=/home/cyberfighter/.nas_Jonny_credentials,iocharset=utf8,uid=1028,gid=100,noperm,vers=2.0
       state: mounted
       fstype: cifs
