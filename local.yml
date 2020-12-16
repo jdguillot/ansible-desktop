@@ -61,12 +61,16 @@
       name:
         - htop
         - gnome-tweak-tool
-        - bpytop
         - enpass
         - vivaldi-stable
         - code
         - profile-sync-daemon
         - gnome-boxes
+
+# Install Pip Packages
+  - name: Install Pip Packages
+    pip:
+      name: bpytop
 
 
 # Copying over config files
