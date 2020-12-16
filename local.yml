@@ -16,10 +16,10 @@
 
 # Adding Repo Keys
   - name: add Enpass key for repo
-    apt-key: https://apt.enpass.io/keys/enpass-linux.key
+    apt_key: https://apt.enpass.io/keys/enpass-linux.key
     state: present
   - name: add Vivaldi key for repo
-    apt-key: https://repo.vivaldi.com/archive/linux_signing_key.pub
+    apt_key: https://repo.vivaldi.com/archive/linux_signing_key.pub
     state: present
 
 
