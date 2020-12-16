@@ -62,6 +62,13 @@
       owner: cyberfighter
       group: cyberfighter
 
+# Systemd services
+  - name: Start Profile Sync Daemon
+    systemd:
+      name: psd
+      state: started
+      enabled: yes
+
 ####### Examples ########
 
 #  - name: copy wallpaper file
