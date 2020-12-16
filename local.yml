@@ -133,6 +133,7 @@
     flatpak:
         name: org.videolan.VLC
         state: present
+        method: user
 
 # Install Pip Packages
   - name: Install Pip Packages
