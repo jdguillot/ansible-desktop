@@ -126,7 +126,13 @@
         - docker-ce-cli
         - containerd.io
         - micro
+        - chromium
 
+# Install Flatpaks
+  - name: Install Flatpaks
+    flatpak:
+        name: vlc
+        state: present
 
 # Install Pip Packages
   - name: Install Pip Packages
