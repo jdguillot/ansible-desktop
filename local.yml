@@ -48,10 +48,19 @@
     package: 
       name:
         - htop
+        - bpytop
         - enpass
         - vivaldi-stable
         - code
+        - profile-sync-daemon
 
+# Copying over config files
+  - name: Copy Profile Sync Daemon conf file
+    copy:
+      src: files/psd.conf
+      dest: /home/cyberfighter/.config/psd/psd.conf
+      owner: cyberfighter
+      group: cyberfighter
 
 ####### Examples ########
 
