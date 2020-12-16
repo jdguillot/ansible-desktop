@@ -158,7 +158,13 @@
       dest: /home/cyberfighter/.config/psd/psd.conf
       owner: cyberfighter
       group: cyberfighter
-
+  - name: Copy Timeshift conf file
+    copy:
+      src: files/timeshift.json
+      dest: /etc/timeshift.json
+      owner: root
+      group: root
+      mode: '0644'
 
 # Systemd services
   - name: Start Profile Sync Daemon
