@@ -116,22 +116,21 @@
       state: started
       enabled: yes
 
-####### Examples ########
-
-#  - name: copy wallpaper file
-#    copy:
-#      src: files/wallpaper.png
-#      dest: /usr/share/backgrounds/ansible-wallpaper.png
-#      owner: root
-#      group: root
-#  - name: set wallpaper
-#    become_user: cyberfighter	
-#    dconf:
-#      key: "/org/gnome/desktop/background/picture-uri"
-#      value: "'file://///usr/share/backgrounds/ansible-wallpaper.png'"
-
-#  - name: set wallpaper position
-#    become_user: cyberfighter
-#    dconf:
-#      key: "/org/gnome/desktop/background/picture-options"
-#      value: "'zoom'"
+# Set User Settings
+  # Set Wallpaper
+  - name: copy wallpaper file
+    copy:
+      src: files/ansible-flying-spaceship-wallpaper.jpg
+      dest: /usr/share/backgrounds/ansible-flying-spaceship-wallpaper.jpg
+      owner: root
+      group: root
+  - name: set wallpaper
+    become_user: cyberfighter
+    dconf:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "'file://///usr/share/backgrounds/ansible-flying-spaceship-wallpaper.jpg'"
+  - name: set wallpaper position
+    become_user: cyberfighter
+    dconf:
+      key: "/org/gnome/desktop/background/picture-options"
+      value: "'zoom'"
