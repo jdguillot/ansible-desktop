@@ -5,6 +5,9 @@
 
   tasks:
 
+# Remove packages
+
+
 # Adding Repo Keys
   - name: add Enpass key for repo
     apt_key:
@@ -48,11 +51,14 @@
     package: 
       name:
         - htop
+        - gnome-tweak-tool
         - bpytop
         - enpass
         - vivaldi-stable
         - code
         - profile-sync-daemon
+        - gnome-boxes
+
 
 # Copying over config files
   - name: Copy Profile Sync Daemon conf file
