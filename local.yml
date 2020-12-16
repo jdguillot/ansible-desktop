@@ -6,6 +6,15 @@
   tasks:
 
 # Remove packages
+  - name: Remove any residual docker packages
+    apt:
+      state: absent
+      name:
+        - docker
+        - docker-engine
+        - docker.io
+        - containerd
+        - runc
 
 
 # Adding Repo Keys
