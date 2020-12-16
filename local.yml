@@ -25,7 +25,7 @@
     apt_repository:
       repo: deb https://repo.vivaldi.com/archive/deb/ stable main
       state: present
-      udpate_cache: yes
+      update_cache: yes
 
 # Refresh Apt Cache
 #  - name: Update apt cache
