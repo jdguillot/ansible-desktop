@@ -85,6 +85,7 @@
 
 # Systemd services
   - name: Start Profile Sync Daemon
+    become_user: cyberfighter
     systemd:
       name: psd
       scope: user
