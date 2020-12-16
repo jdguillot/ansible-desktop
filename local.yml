@@ -82,10 +82,12 @@
       owner: cyberfighter
       group: cyberfighter
 
+
 # Systemd services
   - name: Start Profile Sync Daemon
     systemd:
       name: psd
+      scope: user
       state: started
       enabled: yes
 
