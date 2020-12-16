@@ -15,7 +15,7 @@
     mount:
       src: //synlgy-ds918.cyberfighter.space/scanner
       path: /mnt/NAS_Scanner
-      opts: "'credentials=/home/cyberfighter/.nas_Jonny_credentials,iocharset=utf8,uid=1028,gid=100,noperm,vers=2.0 0 0'"
+      opts: credentials=/home/cyberfighter/.nas_Jonny_credentials,iocharset=utf8,uid=1028,gid=100,noperm,vers=2.0
       state: mounted
       fstype: cifs
 
