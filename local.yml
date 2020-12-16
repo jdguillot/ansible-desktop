@@ -16,6 +16,15 @@
         - containerd
         - runc
 
+# Install Docker Prereqs
+  - name: Install Docker Prereqs
+    package: 
+      name:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
+        - software-properties-common
 
 # Adding Repo Keys
   - name: add Enpass key for repo
@@ -30,6 +39,11 @@
     apt_key:
       url: "https://packages.microsoft.com/keys/microsoft.asc"
       state: present
+  - name: add Docker key for repo
+    apt_key:
+      url: "https://download.docker.com/linux/ubuntu/gpg"
+      state: present
+
 
 
 # Adding Repos
@@ -48,6 +62,12 @@
       repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
       state: present
       update_cache: yes
+  - name: Add Docker repository into sources list
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable
+      state: present
+      update_cache: yes
+  
 
 
 # Refresh Apt Cache
@@ -56,7 +76,7 @@
 #      update_cache: yes
 
 # Installing Packages
-  - name: isntall packages
+  - name: Install packages
     package: 
       name:
         - htop
@@ -67,6 +87,10 @@
         - profile-sync-daemon
         - gnome-boxes
         - python3-pip
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+
 
 # Install Pip Packages
   - name: Install Pip Packages
