@@ -7,8 +7,8 @@
 
 # Mount all drives
   - name: Mount Network Drives
-    ansible.posix.mount:
-      src: synlgy-ds918.cyberfighter.space/scanner
+    mount:
+      src: //synlgy-ds918.cyberfighter.space/scanner
       path: /mnt/NAS_Scanner
       opts: rw,sync,hard,intr
       state: mounted
