@@ -4,15 +4,6 @@
   become: true
 
   tasks:
-# Adding Repos
-  - name: Add Enpass repository into sources list
-    apt_repository:
-      repo: deb https://apt.enpass.io/ stable main
-      state: present
-  - name: Add Vivaldi repository into sources list
-    apt_repository:
-      repo: deb https://repo.vivaldi.com/archive/deb/ stable main
-      state: present
 
 # Adding Repo Keys
   - name: add Enpass key for repo
@@ -24,10 +15,22 @@
       url: "https://repo.vivaldi.com/archive/linux_signing_key.pub"
       state: present
 
-# Refresh Apt Cache
-  - name: Update apt cache
-    apt:
+# Adding Repos
+  - name: Add Enpass repository into sources list
+    apt_repository:
+      repo: deb https://apt.enpass.io/ stable main
+      state: present
       update_cache: yes
+  - name: Add Vivaldi repository into sources list
+    apt_repository:
+      repo: deb https://repo.vivaldi.com/archive/deb/ stable main
+      state: present
+      udpate_cache: yes
+
+# Refresh Apt Cache
+#  - name: Update apt cache
+#    apt:
+#      update_cache: yes
 
 # Installing Packages
   - name: isntall packages
