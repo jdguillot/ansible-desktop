@@ -14,6 +14,11 @@
     apt_key:
       url: "https://repo.vivaldi.com/archive/linux_signing_key.pub"
       state: present
+  - name: add VSCode key for repo
+    apt_key:
+      url: "https://packages.microsoft.com/keys/microsoft.asc"
+      state: present
+
 
 # Adding Repos
   - name: Add Enpass repository into sources list
@@ -26,6 +31,12 @@
       repo: deb https://repo.vivaldi.com/archive/deb/ stable main
       state: present
       update_cache: yes
+  - name: Add VSCode repository into sources list
+    apt_repository:
+      repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+      state: present
+      update_cache: yes
+
 
 # Refresh Apt Cache
 #  - name: Update apt cache
@@ -39,7 +50,7 @@
         - htop
         - enpass
         - vivaldi-stable
-
+        - code
 
 
 ####### Examples ########
