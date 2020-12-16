@@ -4,6 +4,51 @@
   become: true
 
   tasks:
-  - name: isntall htop
+# Adding Repos
+  - name: Add Enpass repository into sources list
+    apt_repository:
+      repo: deb https://apt.enpass.io/ stable main
+      state: present
+  - name: Add Vivaldi repository into sources list
+    apt_repository:
+      repo: deb https://repo.vivaldi.com/archive/deb/ stable main
+      state: present
+
+# Adding Repo Keys
+  - name: add Enpass key for repo
+    apt-key: https://apt.enpass.io/keys/enpass-linux.key
+    state: present
+  - name: add Vivaldi key for repo
+    apt-key: https://repo.vivaldi.com/archive/linux_signing_key.pub
+    state: present
+
+
+# Installing Packages
+  - name: isntall packages
     package: 
-      name: htop
+      name:
+        - htop
+        - enpass
+        - Vivaldi
+
+
+
+####### Examples ########
+
+#  - name: copy wallpaper file
+#    copy:
+#      src: files/wallpaper.png
+#      dest: /usr/share/backgrounds/ansible-wallpaper.png
+#      owner: root
+#      group: root
+#  - name: set wallpaper
+#    become_user: cyberfighter	
+#    dconf:
+#      key: "/org/gnome/desktop/background/picture-uri"
+#      value: "'file://///usr/share/backgrounds/ansible-wallpaper.png'"
+
+#  - name: set wallpaper position
+#    become_user: cyberfighter
+#    dconf:
+#      key: "/org/gnome/desktop/background/picture-options"
+#      value: "'zoom'"
