@@ -127,6 +127,7 @@
         - containerd.io
         - micro
         - chromium
+        - timeshift
         - steam
         - lutris
 
