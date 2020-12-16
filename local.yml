@@ -24,6 +24,10 @@
       url: "https://repo.vivaldi.com/archive/linux_signing_key.pub"
       state: present
 
+# Refresh Apt Cache
+  - name: Update apt cache
+    apt:
+      update_cache: yes
 
 # Installing Packages
   - name: isntall packages
