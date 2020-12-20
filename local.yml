@@ -173,7 +173,7 @@
   - name: Install PrusaSlicer
     become_user: cyberfighter
     loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
-    when: "'GTK.*AppImage' in item.name"
+    when: "'.AppImage' in item.name"
     get_url:                                                           
       url: "{{ item.browser_download_url }}"                       
       dest: ~/Downloads/PrusaSlicer.AppImage
