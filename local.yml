@@ -164,6 +164,20 @@
       dest: ~/projects/home-automation/tasmotizer
       clone: yes
       update: yes
+      
+  - name: Get Latest PrusaSlicer      
+    uri:                                                               
+      url: https://api.github.com/repos/prusa3d/PrusaSlicer/releases/latest
+      return_content: true                                             
+    register: PrusaSlicer_json_reponse                                             
+  - name: Install PrusaSlicer
+    become_user:cyberfighter
+    loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
+    when: "'regex_search(GTK.*AppImage)' in item.name"
+    get_url:                                                           
+      url: "{{ item.browser_download_url }}"                       
+      dest: ~/Downloads/PrusaSlicer.AppImage
+
 
 # Copying over config files
   - name: Copy Profile Sync Daemon conf file
