@@ -125,11 +125,14 @@
         - docker-ce
         - docker-ce-cli
         - containerd.io
+        - docker-compose
         - micro
+        - xclip
         - chromium
         - timeshift
         - steam
         - lutris
+        - openssh-server
 
 # Install Flatpaks
   - name: Add the flathub flatpak repository remote to the user installation
@@ -148,8 +151,19 @@
 # Install Pip Packages
   - name: Install Pip Packages
     pip:
-      name: bpytop
+      name:
+        - bpytop
+        - PyQt5
+        - pyserial
 
+# Install software from Git
+  - name: Install Tasmotizer
+    become_user: cyberfighter
+    git:
+      repo: 'https://github.com/tasmota/tasmotizer.git'
+      dest: ~/projects/home-automation
+      clone: yes
+      update: yes
 
 # Copying over config files
   - name: Copy Profile Sync Daemon conf file
