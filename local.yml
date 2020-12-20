@@ -171,7 +171,7 @@
       return_content: true                                             
     register: PrusaSlicer_json_reponse                                             
   - name: Install PrusaSlicer
-    become_user:cyberfighter
+    become_user: cyberfighter
     loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
     when: "'regex_search(GTK.*AppImage)' in item.name"
     get_url:                                                           
