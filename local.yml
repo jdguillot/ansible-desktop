@@ -167,9 +167,10 @@
 
 # Copying over config files
   - name: Copy Profile Sync Daemon conf file
+    become_user: cyberfighter
     copy:
       src: files/psd.conf
-      dest: /home/cyberfighter/.config/psd/psd.conf
+      dest: ~/.config/psd/psd.conf
       owner: cyberfighter
       group: cyberfighter
   - name: Copy Timeshift conf file
@@ -180,18 +181,20 @@
       group: root
       mode: '0644'
   - name: Copy Tasmotizer Shortcut
+    become_user: cyberfighter
     copy:
       src: files/tasmotizer.desktop
-      dest: /usr/share/applications
-      owner: root
-      group: root
+      dest: ~/.local/share/applications/tasmotizer.desktop
+      owner: cyberfighter
+      group: cyberfighter
       mode: '0644'
   - name: Copy Tasmotizer icon
+    become_user: cyberfighter
     copy:
       src: files/tasmotizer-icon.jpg
-      dest: /usr/share/pixmaps/
-      owner: root
-      group: root
+      dest: ~/projects/home-automation/tasmotizer/tasmotizer-icon.jpg
+      owner: cyberfighter
+      group: cyberfighter
       mode: '0644'
 
 # Systemd services

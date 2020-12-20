@@ -5,7 +5,7 @@ Name=Tasmotizer
 # From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
 # Gnome and KDE 3 uses Comment.
 Comment=Tasmotizer Application for flashing Tasmota Devices
-Exec=python3 tasmotizer.py
+Exec=python3 /home/cyberfighter/projects/home-automation/tasmotizer/tasmotizer.py
 Terminal=false
-Icon=/usr/share/pixmaps/
+Icon=/home/cyberfighter/projects/home-automation/tasmotizer/tasmotizer-icon.jpg
 Type=Application
