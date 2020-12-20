@@ -161,7 +161,7 @@
     become_user: cyberfighter
     git:
       repo: 'https://github.com/tasmota/tasmotizer.git'
-      dest: ~/projects/home-automation
+      dest: ~/projects/home-automation/tasmotizer
       clone: yes
       update: yes
 
@@ -176,6 +176,20 @@
     copy:
       src: files/timeshift.json
       dest: /etc/timeshift.json
+      owner: root
+      group: root
+      mode: '0644'
+  - name: Copy Tasmotizer Shortcut
+    copy:
+      src: files/tasmotizer.desktop
+      dest: /usr/share/applications
+      owner: root
+      group: root
+      mode: '0644'
+  - name: Copy Tasmotizer icon
+    copy:
+      src: files/tasmotizer-icon.jpg
+      dest: /usr/share/pixmaps/
       owner: root
       group: root
       mode: '0644'

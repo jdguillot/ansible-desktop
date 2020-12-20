@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Tasmotizer
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+# Gnome and KDE 3 uses Comment.
+Comment=Tasmotizer Application for flashing Tasmota Devices
+Exec=python3 tasmotizer.py
+Terminal=false
+Icon=/usr/share/pixmaps/
+Type=Application
