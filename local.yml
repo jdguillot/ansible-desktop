@@ -21,7 +21,7 @@
       name:
         - cifs-utils
   - name: Mount Scanner Network Drives
-    when: home_network
+    when: '{{ ansible_connection }} == home_network'
     mount:
       src: //synlgy-ds918.cyberfighter.space/scanner
       path: /mnt/NAS_Scanner
@@ -29,7 +29,7 @@
       state: mounted
       fstype: cifs
   - name: Mount Jonny Network Drives
-    when: home_network
+    when: '{{ ansible_connection }} == home_network'
     mount:
       src: //synlgy-ds918.cyberfighter.space/home
       path: /mnt/NAS_Jonny
@@ -37,7 +37,7 @@
       state: mounted
       fstype: cifs
   - name: Mount Temp Network Drives
-    when: home_network
+    when: '{{ ansible_connection }} == home_network'
     mount:
       src: //synlgy-ds918.cyberfighter.space/Temp
       path: /mnt/NAS_Temp
@@ -45,7 +45,7 @@
       state: mounted
       fstype: cifs
   - name: Mount Media Network Drives
-    when: home_network
+    when: '{{ ansible_connection }} == home_network'
     mount:
       src: //synlgy-ds918.cyberfighter.space/Media
       path: /mnt/NAS_Media
