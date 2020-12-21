@@ -9,7 +9,7 @@
   - name: Wait 10 seconds for NAS"
     wait_for:
       port: 111
-      host: '{{ synlgy-ds918.cyberfighter.space }}'
+      host: synlgy-ds918.cyberfighter.space
       delay: 10
     vars:
       ansible_connection: home_network
