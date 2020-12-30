@@ -169,7 +169,7 @@
       url: https://api.github.com/repos/prusa3d/PrusaSlicer/releases/latest
       return_content: true                                             
     register: PrusaSlicer_json_reponse  
-  - name: create 3d printing folder
+  - name: Create 3d printing folder
     file:
     path: ~/projects/3D-printing/
     state: directory                                           
