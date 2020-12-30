@@ -267,10 +267,16 @@
 
 # Set User Settings
   # Set Wallpaper
-  - name: copy wallpaper file
+  - name: copy HD wallpaper file
     copy:
       src: files/ansible-flying-spaceship-wallpaper.jpg
       dest: /usr/share/backgrounds/ansible-flying-spaceship-wallpaper.jpg
+      owner: root
+      group: root
+  - name: copy 8K wallpaper file
+    copy:
+      src: files/ansible-space_7680x2160.jpg
+      dest: /usr/share/backgrounds/ansible-space_7680x2160.jpg
       owner: root
       group: root
   - name: set wallpaper
