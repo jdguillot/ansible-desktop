@@ -6,13 +6,13 @@
   tasks:
 
 # Check if NAS is available
-  - name: Wait 10 seconds for NAS"
-    wait_for:
-      port: 111
-      host: synlgy-ds918.cyberfighter.space
-      delay: 10
-    vars:
-      ansible_connection: home_network
+  # - name: Wait 10 seconds for NAS"
+  #   wait_for:
+  #     port: 111
+  #     host: synlgy-ds918.cyberfighter.space
+  #     delay: 10
+  #   vars:
+  #     ansible_connection: home_network
 
 # Mount all drives
 # Install CFIS Prereqs
@@ -21,7 +21,7 @@
       name:
         - cifs-utils
   - name: Mount Scanner Network Drives
-    when: '{{ ansible_connection }} == home_network'
+    ignore_unreachable: yes
     mount:
       src: //synlgy-ds918.cyberfighter.space/scanner
       path: /mnt/NAS_Scanner
@@ -29,7 +29,7 @@
       state: mounted
       fstype: cifs
   - name: Mount Jonny Network Drives
-    when: '{{ ansible_connection }} == home_network'
+    ignore_unreachable: yes
     mount:
       src: //synlgy-ds918.cyberfighter.space/home
       path: /mnt/NAS_Jonny
@@ -37,7 +37,7 @@
       state: mounted
       fstype: cifs
   - name: Mount Temp Network Drives
-    when: '{{ ansible_connection }} == home_network'
+    ignore_unreachable: yes
     mount:
       src: //synlgy-ds918.cyberfighter.space/Temp
       path: /mnt/NAS_Temp
@@ -45,7 +45,7 @@
       state: mounted
       fstype: cifs
   - name: Mount Media Network Drives
-    when: '{{ ansible_connection }} == home_network'
+    ignore_unreachable: yes
     mount:
       src: //synlgy-ds918.cyberfighter.space/Media
       path: /mnt/NAS_Media
@@ -146,6 +146,7 @@
         - steam
         - lutris
         - openssh-server
+        - python3-pyqt5.qtserialport # For Tasmotizer
 
 # Install Flatpaks
   - name: Add the flathub flatpak repository remote to the user installation
