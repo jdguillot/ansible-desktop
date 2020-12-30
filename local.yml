@@ -170,6 +170,7 @@
       return_content: true                                             
     register: PrusaSlicer_json_reponse  
   - name: Create 3d printing folder
+    become_user: cyberfighter
     file:
       path: ~/projects/3D-printing/
       state: directory                                           
