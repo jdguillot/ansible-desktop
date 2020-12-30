@@ -187,10 +187,11 @@
   - name: Install PrusaSlicer
     become_user: cyberfighter
     loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
-    when: "'.AppImage' in item.name"
+    when: "'AppImage' in item.name"
     get_url:                                                           
       url: "{{ item.browser_download_url }}"                       
       dest: ~/Downloads/PrusaSlicer.AppImage
+      mode: '0775'
 
 
 # Copying over config files
