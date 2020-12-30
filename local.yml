@@ -171,11 +171,14 @@
     register: PrusaSlicer_json_reponse                                             
   - name: Install PrusaSlicer
     become_user: cyberfighter
+    file:
+      path: ~/projects/3D-printing/
+      state: directory
     loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
     when: item.name | regex_search('GTK.*AppImage')
     get_url:                                                           
       url: "{{ item.browser_download_url }}"                       
-      dest: "~/projects/3D-printing/PrusaSlicer-GTK.AppImage"
+      dest: ~/projects/3D-printing/PrusaSlicer-GTK.AppImage
       mode: '0775'
     loop_control:
       label: "{{ item.name }}"
