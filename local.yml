@@ -175,7 +175,7 @@
     when: item.name | regex_search('GTK.*AppImage')
     get_url:                                                           
       url: "{{ item.browser_download_url }}"                       
-      dest: "~/Downloads/{{ item.name }}"
+      dest: "~/projects/3D-printing/PrusaSlicer-GTK.AppImage"
       mode: '0775'
     loop_control:
       label: "{{ item.name }}"
@@ -217,6 +217,22 @@
     copy:
       src: files/tasmotizer-icon.jpg
       dest: ~/projects/home-automation/tasmotizer/tasmotizer-icon.jpg
+      owner: cyberfighter
+      group: cyberfighter
+      mode: '0644'
+  - name: Copy PrusaSlicer Shortcut
+    become_user: cyberfighter
+    copy:
+      src: files/PrusaSlicer.desktop
+      dest: ~/.local/share/applications/PrusaSlicer.desktop
+      owner: cyberfighter
+      group: cyberfighter
+      mode: '0664'
+  - name: Copy PrusaSlicer icon
+    become_user: cyberfighter
+    copy:
+      src: files/tasmotizer-icon.jpg
+      dest: ~/projects/3D-printing/PrusaSlicer.png
       owner: cyberfighter
       group: cyberfighter
       mode: '0644'
