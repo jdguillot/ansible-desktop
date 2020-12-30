@@ -208,6 +208,14 @@
       owner: root
       group: root
       mode: '0644'
+  - name: Copy Tasmotizer Launcher
+    become_user: cyberfighter
+    copy:
+      src: files/tasmotizer-launcher
+      dest: ~/projects/home-automation/tasmotizer/tasmotizer-launcher
+      owner: cyberfighter
+      group: cyberfighter
+      mode: '0644'
   - name: Copy Tasmotizer Shortcut
     become_user: cyberfighter
     copy:
