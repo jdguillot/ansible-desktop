@@ -171,8 +171,8 @@
     register: PrusaSlicer_json_reponse  
   - name: Create 3d printing folder
     file:
-    path: ~/projects/3D-printing/
-    state: directory                                           
+      path: ~/projects/3D-printing/
+      state: directory                                           
   - name: Install PrusaSlicer
     become_user: cyberfighter
     loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
