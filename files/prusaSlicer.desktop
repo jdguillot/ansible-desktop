@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=PrusaSlicer
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+# Gnome and KDE 3 uses Comment.
+Comment=PrusaSlicer for 3D Printing on 3D Printers
+Exec=/home/cyberfighter/projects/3D-printing/PrusaSlicer-GTK.AppImage
+Terminal=false
+Icon=/home/cyberfighter/projects/3D-printing/PrusaSlicer.png
+Type=Application
