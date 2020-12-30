@@ -168,12 +168,13 @@
     uri:                                                               
       url: https://api.github.com/repos/prusa3d/PrusaSlicer/releases/latest
       return_content: true                                             
-    register: PrusaSlicer_json_reponse                                             
+    register: PrusaSlicer_json_reponse  
+  - name: create 3d printing folder
+    file:
+    path: ~/projects/3D-printing/
+    state: directory                                           
   - name: Install PrusaSlicer
     become_user: cyberfighter
-    file:
-      path: ~/projects/3D-printing/
-      state: directory
     loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
     when: item.name | regex_search('GTK.*AppImage')
     get_url:                                                           
