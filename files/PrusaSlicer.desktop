@@ -9,3 +9,8 @@ Exec=/home/cyberfighter/projects/3D-printing/PrusaSlicer-GTK.AppImage
 Terminal=false
 Icon=/home/cyberfighter/projects/3D-printing/PrusaSlicer.png
 Type=Application
+Actions=root-window
+
+[Desktop Action root-window]
+Name=Open with Root
+Exec=/home/cyberfighter/projects/3D-printing/PrusaSlicer-launcher
