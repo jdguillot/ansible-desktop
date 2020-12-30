@@ -163,17 +163,17 @@
       dest: ~/projects/home-automation/tasmotizer
       clone: yes
       update: yes
-      
-  - name: Get Latest PrusaSlicer      
-    uri:                                                               
-      url: https://api.github.com/repos/prusa3d/PrusaSlicer/releases/latest
-      return_content: true                                             
-    register: PrusaSlicer_json_reponse  
+
   - name: Create 3d printing folder
     become_user: cyberfighter
     file:
       path: ~/projects/3D-printing/
-      state: directory                                           
+      state: directory      
+  - name: Get Latest PrusaSlicer      
+    uri:                                                               
+      url: https://api.github.com/repos/prusa3d/PrusaSlicer/releases/latest
+      return_content: true                                             
+    register: PrusaSlicer_json_reponse                                       
   - name: Install PrusaSlicer
     become_user: cyberfighter
     loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
@@ -182,6 +182,20 @@
       url: "{{ item.browser_download_url }}"                       
       dest: ~/projects/3D-printing/PrusaSlicer-GTK.AppImage
       mode: '0775'
+    loop_control:
+      label: "{{ item.name }}"
+  - name: Get Latest Prusa 3S Firmware     
+    uri:                                                               
+      url: https://api.github.com/repos/prusa3d/Prusa-Firmware/releases/latest
+      return_content: true                                             
+    register: PrusaFirmware_json_reponse                                       
+  - name: Install Prusa Firmware
+    become_user: cyberfighter
+    loop: "{{ PrusaFirmware_json_reponse.json.assets }}"
+    when: "'MK3S' in item.name"
+    get_url:                                                           
+      url: "{{ item.browser_download_url }}"                       
+      dest: ~/projects/3D-printing/{{ item.name }}
     loop_control:
       label: "{{ item.name }}"
 
