@@ -215,7 +215,7 @@
       dest: ~/projects/home-automation/tasmotizer/tasmotizer-launcher
       owner: cyberfighter
       group: cyberfighter
-      mode: '0644'
+      mode: '0775'
   - name: Copy Tasmotizer Shortcut
     become_user: cyberfighter
     copy:
@@ -223,7 +223,7 @@
       dest: ~/.local/share/applications/tasmotizer.desktop
       owner: cyberfighter
       group: cyberfighter
-      mode: '0644'
+      mode: '0664'
   - name: Copy Tasmotizer icon
     become_user: cyberfighter
     copy:
