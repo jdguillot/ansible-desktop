@@ -173,10 +173,12 @@
     become_user: cyberfighter
     loop: "{{ PrusaSlicer_json_reponse.json.assets }}"
     when: "'AppImage' in item.name"
-    # get_url:                                                           
-    #   url: "{{ item.browser_download_url }}"                       
-    #   dest: "~/Downloads/{{ item.name }}"
-    #   mode: '0775'
+    get_url:                                                           
+      url: "{{ item.browser_download_url }}"                       
+      dest: "~/Downloads/{{ item.name }}"
+      mode: '0775'
+    loop_control:
+      label: "{{ item.name }}"
 
 
 # Copying over config files
