@@ -148,7 +148,7 @@
   - name: Install Flatpaks
     become_user: cyberfighter
     flatpak:
-        name: "{{ flatpak_install }}"
+        name: "{{ flatpak_install[0] }}"
         state: present
         method: user
 
