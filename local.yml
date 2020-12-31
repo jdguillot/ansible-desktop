@@ -132,7 +132,9 @@
         - lutris
         - openssh-server
         - python3-pyqt5.qtserialport # For Tasmotizer
-
+        - kdeconnect
+        - blender
+        
 # Install Flatpaks
   - name: Add the flathub flatpak repository remote to the user installation
     flatpak_remote:
@@ -143,7 +145,10 @@
   - name: Install Flatpaks
     become_user: cyberfighter
     flatpak:
-        name: org.videolan.VLC
+        name: 
+          - org.videolan.VLC
+          - cc.arduino.arduinoide
+          - org.fritzing.Fritzing
         state: present
         method: user
 
