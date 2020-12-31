@@ -4,7 +4,7 @@
   become: true
 
   vars_files:
-    - /vars/flatpaks.yml
+    - vars/flatpaks.yml
 
   tasks:
 
