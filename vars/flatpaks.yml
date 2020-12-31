@@ -1,4 +1,4 @@
 flatpak_install:
   - org.videolan.VLC
-  # - cc.arduino.arduinoide
-  # - org.fritzing.Fritzing
+  - cc.arduino.arduinoide
+  - org.fritzing.Fritzing

@@ -148,9 +148,11 @@
   - name: Install Flatpaks
     become_user: cyberfighter
     flatpak:
-        name: "{{ flatpak_install[0] }}"
-        state: present
-        method: user
+      name: "{{ item }}"
+      state: present
+      method: user
+    with_items: "{{ flatpak_install }}"
+
 
 # Install Pip Packages
   - name: Install Pip Packages
