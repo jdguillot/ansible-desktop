@@ -3,6 +3,9 @@
   connection: local
   become: true
 
+  vars_files:
+    - /vars/flatpaks.yml
+
   tasks:
 
 # Mount all drives
@@ -145,10 +148,7 @@
   - name: Install Flatpaks
     become_user: cyberfighter
     flatpak:
-        name: 
-          - org.videolan.VLC
-          - cc.arduino.arduinoide
-          - org.fritzing.Fritzing
+        name: "{{ flatpak_install }}"
         state: present
         method: user
 
