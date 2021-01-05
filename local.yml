@@ -46,6 +46,15 @@
       opts: credentials=/home/cyberfighter/.nas_Jonny_credentials,iocharset=utf8,uid=1028,gid=100,noperm,vers=2.0
       state: mounted
       fstype: cifs
+  - name: Mount Onedrive Network Drive
+    ignore_unreachable: yes
+    mount:
+      src: //synlgy-ds918.cyberfighter.space/Onedrive
+      path: /mnt/NAS_Onedrive
+      opts: credentials=/home/cyberfighter/.nas_Jonny_credentials,iocharset=utf8,uid=1028,gid=100,noperm,vers=2.0
+      state: mounted
+      fstype: cifs
+
 
 # Remove packages
   - name: Remove any residual docker packages
@@ -137,6 +146,7 @@
         - python3-pyqt5.qtserialport # For Tasmotizer
         - kdeconnect
         - blender
+        - lm-sensors # Need to add the command for sudo sensors-detect
         
 # Install Flatpaks
   - name: Add the flathub flatpak repository remote to the user installation
