@@ -163,6 +163,12 @@
       method: user
     with_items: "{{ flatpak_install }}"
 
+# Install Snap Packages
+  - name: Install Snap Packages
+    become_user: cyberfighter
+    snap:
+      name:
+        - mqtt-explorer
 
 # Install Pip Packages
   - name: Install Pip Packages
