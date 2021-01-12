@@ -330,3 +330,23 @@
     dconf:
       key: "/org/gnome/desktop/interface/clock-show-weekday"
       value: "true"
+
+# Install my own projects
+  - name: Create docker folders for my projects
+    become_user: cyberfighter
+    file:
+      path: ~/projects/docker
+      state: directory
+  - name: Create ansible folders for my projects
+    become_user: cyberfighter
+    file:
+      path: ~/projects/ansible
+      state: directory
+  - name: Install my ansible-desktop project from Git
+    become_user: cyberfighter
+    git:
+      repo: 'https://github.com/Cyberfighter/ansible-desktop.git'
+      dest: ~/projects/ansible/ansible-desktop
+      clone: yes
+      update: yes
+    
