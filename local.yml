@@ -152,10 +152,11 @@
         
 # Install Flatpaks
   - name: Add the flathub flatpak repository remote to the user installation
+    become_user: cyberfighter
     flatpak_remote:
       name: flathub
       state: present
-      flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+      flatpakrepo_url: "https://flathub.org/repo/flathub.flatpakrepo"
       method: user
   - name: Install Flatpaks
     become_user: cyberfighter
