@@ -165,7 +165,6 @@
 
 # Install Snap Packages
   - name: Install Snap Packages
-    become_user: cyberfighter
     snap:
       name:
         - mqtt-explorer
