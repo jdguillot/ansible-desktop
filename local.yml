@@ -141,7 +141,7 @@
         - chromium-browser
         - timeshift
         - steam
-        - lutris
+#         - lutris # Removed lutris to maintain compatability
         - openssh-server
         - python3-pyqt5.qtserialport # For Tasmotizer
         - kdeconnect
