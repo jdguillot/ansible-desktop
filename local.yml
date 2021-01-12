@@ -138,7 +138,7 @@
         - docker-compose
         - micro
         - xclip
-        - chromium
+        - chromium-browser
         - timeshift
         - steam
         - lutris
