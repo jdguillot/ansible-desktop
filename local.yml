@@ -125,6 +125,8 @@
     package: 
       name:
         - htop
+        - flatpak
+        - snapd
         - gnome-tweak-tool
         - enpass
         - vivaldi-stable
