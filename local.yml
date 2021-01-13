@@ -280,6 +280,14 @@
       owner: cyberfighter
       group: cyberfighter
       mode: '0644'
+  - name: Copy 5k Wallpaper  Shortcut
+    become_user: cyberfighter
+    copy:
+      src: files/5k-wallpaper.desktop
+      dest: ~/.local/share/applications/5k-wallpaper.desktop
+      owner: cyberfighter
+      group: cyberfighter
+      mode: '0664'
 
 # Systemd services
   - name: Start Profile Sync Daemon

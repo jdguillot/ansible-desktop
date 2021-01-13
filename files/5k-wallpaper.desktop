@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Wallpaper 5K
+Comment=Apply 5K wallpaper by default. Right click for more options.
+Exec=gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/ansible-space_7680x2160.jpg
+Terminal=false
+Icon=/usr/share/backgrounds/ansible-space_7680x2160.jpg
+Type=Application
+Actions=1080p
+
+[Desktop Action 1080p]
+Name=Wallpaper 1080p
+Exec=gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/ansible-flying-spaceship-wallpaper.jpg
