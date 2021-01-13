@@ -94,6 +94,10 @@
     apt_key:
       url: "https://download.docker.com/linux/ubuntu/gpg"
       state: present
+  - name: add Signal key for repo
+    apt_key:
+      url: "https://updates.signal.org/desktop/apt/keys.asc"
+      state: present
 
 
 
@@ -118,7 +122,12 @@
       repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable
       state: present
       update_cache: yes
-  
+  - name: Add Signal repository into sources list
+    apt_repository:
+      repo: deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main
+      state: present
+      update_cache: yes
+      
 
 # Installing Packages
   - name: Install packages
@@ -149,6 +158,7 @@
         - kdeconnect
         - blender
         - lm-sensors # Need to add the command for sudo sensors-detect
+        - signal-desktop
         
 # Install Flatpaks
   - name: Add the flathub flatpak repository remote to the user installation
