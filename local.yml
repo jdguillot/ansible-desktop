@@ -159,6 +159,7 @@
         - blender
         - lm-sensors # Need to add the command for sudo sensors-detect
         - signal-desktop
+        - freecad
         
 # Install Flatpaks
   - name: Add the flathub flatpak repository remote to the user installation
