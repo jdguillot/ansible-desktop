@@ -149,7 +149,6 @@
         - docker-compose
         - micro
         - xclip
-        - chromium-browser
         - timeshift
         - steam
 #         - lutris # Removed lutris to maintain compatability
