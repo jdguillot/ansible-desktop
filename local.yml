@@ -227,7 +227,7 @@
       state: directory      
   - name: Get Latest xLights     
     uri:                                                               
-      url: https://github.com/smeighan/xLights/releases/latest
+      url: https://api.github.com/repos/smeighan/xLights/releases/latest
       return_content: true                                             
     register: xLights_json_reponse    
   - name: Install xLights
