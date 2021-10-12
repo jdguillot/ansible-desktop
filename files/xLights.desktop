@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=xLights
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+# Gnome and KDE 3 uses Comment.
+Comment=xLights Program for Sequencing RGB Lights
+Exec=/home/cyberfighter/projects/RGB-Lights/xLights.AppImage
+Terminal=false
+Icon=/home/cyberfighter/projects/RGB-Lights/xLights.png
+Type=Application

@@ -198,7 +198,7 @@
       dest: ~/projects/home-automation/tasmotizer
       clone: yes
       update: yes
-
+# PrusaSlicer Folder and Download
   - name: Create 3d printing folder
     become_user: cyberfighter
     file:
@@ -216,6 +216,27 @@
     get_url:                                                           
       url: "{{ item.browser_download_url }}"                       
       dest: ~/projects/3D-printing/PrusaSlicer-GTK.AppImage
+      mode: '0775'
+    loop_control:
+      label: "{{ item.name }}"
+# xLights Folder and Download
+  - name: Create RGB Lights Folder
+    become_user: cyberfighter
+    file:
+      path: ~/projects/RGB-Lights/
+      state: directory      
+  - name: Get Latest xLights     
+    uri:                                                               
+      url: https://github.com/smeighan/xLights/releases/latest
+      return_content: true                                             
+    register: xLights_json_reponse    
+  - name: Install xLights
+    become_user: cyberfighter
+    loop: "{{ xLights_json_reponse.json.assets }}"
+    when: item.name | regex_search('AppImage')
+    get_url:                                                           
+      url: "{{ item.browser_download_url }}"                       
+      dest: ~/projects/RGB-Lights/xLights.AppImage
       mode: '0775'
     loop_control:
       label: "{{ item.name }}"
@@ -250,6 +271,15 @@
       owner: root
       group: root
       mode: '0644'
+# Tasmotizer Launcher
+  - name: Copy Tasmotizer icon
+    become_user: cyberfighter
+    copy:
+      src: files/tasmotizer-icon.jpg
+      dest: ~/projects/home-automation/tasmotizer/tasmotizer-icon.jpg
+      owner: cyberfighter
+      group: cyberfighter
+      mode: '0644'
   - name: Copy Tasmotizer Launcher
     become_user: cyberfighter
     copy:
@@ -266,11 +296,12 @@
       owner: cyberfighter
       group: cyberfighter
       mode: '0664'
-  - name: Copy Tasmotizer icon
+# PrusaSlicer Icon
+  - name: Copy PrusaSlicer icon
     become_user: cyberfighter
     copy:
-      src: files/tasmotizer-icon.jpg
-      dest: ~/projects/home-automation/tasmotizer/tasmotizer-icon.jpg
+      src: files/PrusaSlicer.png
+      dest: ~/projects/3D-printing/PrusaSlicer.png
       owner: cyberfighter
       group: cyberfighter
       mode: '0644'
@@ -282,14 +313,23 @@
       owner: cyberfighter
       group: cyberfighter
       mode: '0664'
-  - name: Copy PrusaSlicer icon
+# xLights Launcher
+  - name: Copy xLights icon
     become_user: cyberfighter
     copy:
-      src: files/PrusaSlicer.png
-      dest: ~/projects/3D-printing/PrusaSlicer.png
+      src: files/xLights.png
+      dest: ~/projects/RGB-Lights/xLights.png
       owner: cyberfighter
       group: cyberfighter
       mode: '0644'
+  - name: Copy xLights Shortcut
+    become_user: cyberfighter
+    copy:
+      src: files/xLights.desktop
+      dest: ~/.local/share/applications/xLights.desktop
+      owner: cyberfighter
+      group: cyberfighter
+      mode: '0664'
   - name: Copy 5k Wallpaper  Shortcut
     become_user: cyberfighter
     copy:
