@@ -113,7 +113,7 @@
       update_cache: yes
   - name: Add Vivaldi repository into sources list
     apt_repository:
-      repo: deb https://repo.vivaldi.com/archive/deb/ stable main
+      repo: deb [arch=amd64] https://repo.vivaldi.com/archive/deb/ stable main
       state: present
       update_cache: yes
   - name: Add VSCode repository into sources list
