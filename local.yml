@@ -79,25 +79,29 @@
 
 # Adding Repo Keys
   - name: add Enpass key for repo
-    apt_key:
+    get_url:
       url: "https://apt.enpass.io/keys/enpass-linux.key"
-      state: present
+      dest: /etc/apt/trusted.gpg.d/enpass.asc
+      mode: '0644'
+      force: true
   - name: add Vivaldi key for repo
-    apt_key:
+    get_url:
       url: "https://repo.vivaldi.com/archive/linux_signing_key.pub"
-      state: present
+      dest: /etc/apt/trusted.gpg.d/vivaldi.asc
+      mode: '0644'
+      force: true
   - name: add VSCode key for repo
-    apt_key:
+    get_url:
       url: "https://packages.microsoft.com/keys/microsoft.asc"
-      state: present
+      dest: /etc/apt/trusted.gpg.d/microsoft.asc
+      mode: '0644'
+      force: true
   - name: add Docker key for repo
-    apt_key:
+    get_url:
       url: "https://download.docker.com/linux/ubuntu/gpg"
-      state: present
-  - name: add Signal key for repo
-    apt_key:
-      url: "https://updates.signal.org/desktop/apt/keys.asc"
-      state: present
+      dest: /etc/apt/trusted.gpg.d/docker.asc
+      mode: '0644'
+      force: true
 
 
 
